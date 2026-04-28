@@ -1,6 +1,6 @@
 # GreenInfo Hub - Gamified Recycling Platform
 
-GreenInfo Hub is an Android-based gamified recycling application developed using **Kotlin**. It aims to solve the waste crisis in Hong Kong by providing accurate recycling knowledge and encouraging sustainable habits through a behavioral incentive model (Nudge Theory & SDT).
+GreenInfo Hub is an Android-based information recycling application developed using **Kotlin**. It aims to solve the waste crisis in Hong Kong by providing accurate recycling knowledge and encouraging sustainable habits through a behavioral incentive model (Nudge Theory & SDT).
 
 ## 🚀 Key Features
 - **Smart Recycling Map**: Locate recycling stations within 1km using Google Maps SDK.
