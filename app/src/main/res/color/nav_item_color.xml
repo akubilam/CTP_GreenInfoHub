@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:color="#FFBC0D" android:state_checked="true" />
+    <!-- 未選中時的顏色（灰色） -->
+    <item android:color="#757575" android:state_checked="false" />
+</selector>

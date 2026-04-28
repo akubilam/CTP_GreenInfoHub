@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_home"
+        android:icon="@drawable/ic_home"
+        android:title="Home" />
+    <item
+        android:id="@+id/nav_location"
+        android:icon="@drawable/ic_location"
+        android:title="Recycling" />
+    <item
+        android:id="@+id/nav_info"
+        android:icon="@drawable/ic_info"
+        android:title="Knowledge" />
+    <item
+        android:id="@+id/nav_scanner"
+        android:icon="@drawable/ic_scanner"
+        android:title="Scanner" />
+    <item
+        android:id="@+id/nav_more"
+        android:icon="@drawable/ic_more"
+        android:title="More" />
+</menu>

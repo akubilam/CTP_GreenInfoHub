@@ -1,0 +1,977 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F0F5F0">
+
+    <ImageButton
+        android:id="@+id/btnBack"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_margin="16dp"
+        android:background="@drawable/bg_circle_white"
+        android:elevation="6dp"
+        android:src="@android:drawable/ic_menu_revert"
+        app:tint="#2E7D32"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvGuideTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="16dp"
+        android:text="Recycling Guide"
+        android:textColor="#2E7D32"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/btnBack"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/btnBack"
+        app:layout_constraintTop_toTopOf="@id/btnBack" />
+
+    <!-- TabLayout -->
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tab_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        app:layout_constraintTop_toBottomOf="@id/btnBack"
+        app:tabIndicatorColor="#2E7D32"
+        app:tabSelectedTextColor="#2E7D32"
+        app:tabTextColor="#888">
+        <com.google.android.material.tabs.TabItem android:text="✅ Recyclable" />
+        <com.google.android.material.tabs.TabItem android:text="❌ Non-Recyclable" />
+        <com.google.android.material.tabs.TabItem android:text="📋 Process" />
+    </com.google.android.material.tabs.TabLayout>
+
+    <!-- Content Area -->
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toTopOf="@id/bottom_navigation"
+        app:layout_constraintTop_toBottomOf="@id/tab_layout">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- ====================== 1. Recyclable Plastics (1-7 FOLDABLE CARDS) ====================== -->
+            <LinearLayout
+                android:id="@+id/card_can_recycle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="visible">
+
+                <!-- Title -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Plastic Resin Codes 1-7 Guide"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="#2E7D32"
+                    android:layout_marginBottom="12dp"/>
+
+                <!-- 1# PET -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="2dp"
+                    android:layout_marginBottom="8dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <!-- Click to Expand -->
+                        <LinearLayout
+                            android:id="@+id/layout_pet"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:src="@drawable/ic_pet"
+                                android:scaleType="fitCenter"/>
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:layout_marginStart="12dp"
+                                android:layout_marginEnd="8dp"
+                                android:text="1# PET (Polyethylene Terephthalate)"
+                                android:textSize="16sp"
+                                android:textStyle="bold"
+                                android:ellipsize="end"
+                                android:maxLines="2" />
+
+                            <ImageView
+                                android:id="@+id/arrow_pet"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:src="@drawable/ic_arrow_down"/>
+                        </LinearLayout>
+
+                        <!-- Expandable Content -->
+                        <LinearLayout
+                            android:id="@+id/content_pet"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_marginTop="12dp"
+                            android:visibility="gone">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="160dp"
+                                android:src="@drawable/ic_pet"
+                                android:scaleType="fitCenter"/>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Accepted Facilities:"
+                                android:textStyle="bold"
+                                android:textSize="14sp"
+                                android:layout_marginTop="8dp"
+                                android:textColor="#2E7D32"/>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="• GREEN@COMMUNITY (Recycling Stations/Stores)\n• Smart Reverse Vending Machines (RVM)\n• Brown Recycling Bins (Residential/Public)\n• Community Recycling Points"
+                                android:lineSpacingExtra="4dp"
+                                android:textColor="#444444"/>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Recycling Notes:"
+                                android:textStyle="bold"
+                                android:textSize="14sp"
+                                android:layout_marginTop="8dp"
+                                android:textColor="#2E7D32"/>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="• Ensure bottles are emptied and rinsed\n• Remove caps and plastic sleeves (if possible)\n• Use RVMs to earn extra GREEN$ points instantly"
+                                android:lineSpacingExtra="4dp"
+                                android:textColor="#444444"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- 2# HDPE -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="2dp"
+                    android:layout_marginBottom="8dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <LinearLayout
+                            android:id="@+id/layout_hdpe"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+                            <ImageView
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:src="@drawable/ic_hdpe"
+                                android:scaleType="fitCenter"/>
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:layout_marginStart="12dp"
+                                android:layout_marginEnd="8dp"
+                                android:text="2# HDPE (High-Density Polyethylene)"
+                                android:textSize="16sp"
+                                android:textStyle="bold"
+                                android:ellipsize="end"
+                                android:maxLines="2" />
+                            <ImageView
+                                android:id="@+id/arrow_hdpe"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:src="@drawable/ic_arrow_down"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/content_hdpe"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_marginTop="12dp"
+                            android:visibility="gone">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="160dp"
+                                android:src="@drawable/ic_hdpe"
+                                android:scaleType="fitCenter"/>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Accepted Facilities:"
+                                android:textStyle="bold"
+                                android:textSize="14sp"
+                                android:layout_marginTop="8dp"
+                                android:textColor="#2E7D32"/>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="• GREEN@COMMUNITY (Recycling Stations/Stores)\n• Brown Recycling Bins (For detergent/shampoo bottles)\n• Community Recycling Points"
+                                android:lineSpacingExtra="4dp"
+                                android:textColor="#444444"/>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Recycling Notes:"
+                                android:textStyle="bold"
+                                android:textSize="14sp"
+                                android:layout_marginTop="8dp"
+                                android:textColor="#2E7D32"/>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="• IMPORTANT: Use BROWN bins for non-beverage HDPE bottles\n• Remove pump heads and rinse thoroughly\n• Highly durable and widely recyclable at official stations"
+                                android:lineSpacingExtra="4dp"
+                                android:textColor="#444444"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- 3# PVC -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="2dp"
+                    android:layout_marginBottom="8dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <LinearLayout
+                            android:id="@+id/layout_pvc"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+                            <ImageView
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:src="@drawable/ic_pvc"
+                                android:scaleType="fitCenter"/>
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:layout_marginStart="12dp"
+                                android:layout_marginEnd="8dp"
+                                android:text="3# PVC (Polyvinyl Chloride)"
+                                android:textSize="16sp"
+                                android:textStyle="bold"
+                                android:ellipsize="end"
+                                android:maxLines="2" />
+                            <ImageView
+                                android:id="@+id/arrow_pvc"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:src="@drawable/ic_arrow_down"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/content_pvc"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_marginTop="12dp"
+                            android:visibility="gone">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="160dp"
+                                android:src="@drawable/ic_pvc"
+                                android:scaleType="fitCenter"/>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Accepted Facilities:"
+                                android:textStyle="bold"
+                                android:textSize="14sp"
+                                android:layout_marginTop="8dp"
+                                android:textColor="#2E7D32"/>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="• Special Industrial Recycling Centers\n• NOT accepted in standard Brown/Blue bins"
+                                android:lineSpacingExtra="4dp"
+                                android:textColor="#444444"/>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Recycling Notes:"
+                                android:textStyle="bold"
+                                android:textSize="14sp"
+                                android:layout_marginTop="8dp"
+                                android:textColor="#D32F2F"/>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="• Very difficult to recycle in domestic systems\n• Contains toxic additives; avoid mixing with other plastics\n• Please contact professional waste collectors for disposal"
+                                android:lineSpacingExtra="4dp"
+                                android:textColor="#444444"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- 4# LDPE -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="2dp"
+                    android:layout_marginBottom="8dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <LinearLayout
+                            android:id="@+id/layout_ldpe"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+                            <ImageView
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:src="@drawable/ic_ldpe"
+                                android:scaleType="fitCenter"/>
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:layout_marginStart="12dp"
+                                android:layout_marginEnd="8dp"
+                                android:text="4# LDPE (Low-Density Polyethylene)"
+                                android:textSize="16sp"
+                                android:textStyle="bold"
+                                android:ellipsize="end"
+                                android:maxLines="2" />
+                            <ImageView
+                                android:id="@+id/arrow_ldpe"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:src="@drawable/ic_arrow_down"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/content_ldpe"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_marginTop="12dp"
+                            android:visibility="gone">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="160dp"
+                                android:src="@drawable/ic_ldpe"
+                                android:scaleType="fitCenter"/>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Accepted Facilities:"
+                                android:textStyle="bold"
+                                android:textSize="14sp"
+                                android:layout_marginTop="8dp"
+                                android:textColor="#2E7D32"/>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="• GREEN@COMMUNITY (Recycling Stations/Stores)\n• Designated Plastic Film Collection Points"
+                                android:lineSpacingExtra="4dp"
+                                android:textColor="#444444"/>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Recycling Notes:"
+                                android:textStyle="bold"
+                                android:textSize="14sp"
+                                android:layout_marginTop="8dp"
+                                android:textColor="#2E7D32"/>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="• Often classified as 'Soft Plastic'\n• Must be clean and dry\n• Not accepted in standard curbside bins"
+                                android:lineSpacingExtra="4dp"
+                                android:textColor="#444444"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- 5# PP -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="2dp"
+                    android:layout_marginBottom="8dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <LinearLayout
+                            android:id="@+id/layout_pp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+                            <ImageView
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:src="@drawable/ic_pp"
+                                android:scaleType="fitCenter"/>
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:layout_marginStart="12dp"
+                                android:layout_marginEnd="8dp"
+                                android:text="5# PP (Polypropylene)"
+                                android:textSize="16sp"
+                                android:textStyle="bold"
+                                android:ellipsize="end"
+                                android:maxLines="2" />
+                            <ImageView
+                                android:id="@+id/arrow_pp"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:src="@drawable/ic_arrow_down"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/content_pp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_marginTop="12dp"
+                            android:visibility="gone">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="160dp"
+                                android:src="@drawable/ic_pp"
+                                android:scaleType="fitCenter"/>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Accepted Facilities:"
+                                android:textStyle="bold"
+                                android:textSize="14sp"
+                                android:layout_marginTop="8dp"
+                                android:textColor="#2E7D32"/>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="• GREEN@COMMUNITY (Recycling Stations/Stores)\n• Brown Recycling Bins (For food containers/trays)\n• Community Recycling Points"
+                                android:lineSpacingExtra="4dp"
+                                android:textColor="#444444"/>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Recycling Notes:"
+                                android:textStyle="bold"
+                                android:textSize="14sp"
+                                android:layout_marginTop="8dp"
+                                android:textColor="#2E7D32"/>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="• Clean off all food residue and oil\n• Use BROWN bins for hard plastic containers\n• Widely accepted at all government stations"
+                                android:lineSpacingExtra="4dp"
+                                android:textColor="#444444"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- 6# PS -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="2dp"
+                    android:layout_marginBottom="8dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <LinearLayout
+                            android:id="@+id/layout_ps"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+                            <ImageView
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:src="@drawable/ic_ps"
+                                android:scaleType="fitCenter"/>
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:layout_marginStart="12dp"
+                                android:layout_marginEnd="8dp"
+                                android:text="6# PS (Polystyrene)"
+                                android:textSize="16sp"
+                                android:textStyle="bold"
+                                android:ellipsize="end"
+                                android:maxLines="2" />
+                            <ImageView
+                                android:id="@+id/arrow_ps"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:src="@drawable/ic_arrow_down"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/content_ps"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_marginTop="12dp"
+                            android:visibility="gone">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="160dp"
+                                android:src="@drawable/ic_ps"
+                                android:scaleType="fitCenter"/>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Accepted Facilities:"
+                                android:textStyle="bold"
+                                android:textSize="14sp"
+                                android:layout_marginTop="8dp"
+                                android:textColor="#2E7D32"/>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="• GREEN@COMMUNITY (Recycling Stations/Stores)\n• Specific Expanded Polystyrene (EPS) Collection Points"
+                                android:lineSpacingExtra="4dp"
+                                android:textColor="#444444"/>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Recycling Notes:"
+                                android:textStyle="bold"
+                                android:textSize="14sp"
+                                android:layout_marginTop="8dp"
+                                android:textColor="#2E7D32"/>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="• Includes Styrofoam and rigid plastic (CD cases)\n• Remove all food residues and tape\n• NOT accepted in Blue or Brown curbside bins"
+                                android:lineSpacingExtra="4dp"
+                                android:textColor="#444444"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- 7# OTHER -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="2dp"
+                    android:layout_marginBottom="8dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <LinearLayout
+                            android:id="@+id/layout_other"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+                            <ImageView
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:src="@drawable/ic_other"
+                                android:scaleType="fitCenter"/>
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:layout_marginStart="12dp"
+                                android:layout_marginEnd="8dp"
+                                android:text="7# OTHER (Misc. Plastics)"
+                                android:textSize="16sp"
+                                android:textStyle="bold"
+                                android:ellipsize="end"
+                                android:maxLines="2" />
+                            <ImageView
+                                android:id="@+id/arrow_other"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:src="@drawable/ic_arrow_down"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/content_other"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_marginTop="12dp"
+                            android:visibility="gone">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="160dp"
+                                android:src="@drawable/ic_other"
+                                android:scaleType="fitCenter"/>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Accepted Facilities:"
+                                android:textStyle="bold"
+                                android:textSize="14sp"
+                                android:layout_marginTop="8dp"
+                                android:textColor="#2E7D32"/>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="• GREEN@COMMUNITY (Recycling Stations/Stores)\n• Specialized Professional Recyclers"
+                                android:lineSpacingExtra="4dp"
+                                android:textColor="#444444"/>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Recycling Notes:"
+                                android:textStyle="bold"
+                                android:textSize="14sp"
+                                android:layout_marginTop="8dp"
+                                android:textColor="#E65100"/>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="• Includes bioplastics and composite materials\n• Difficult to sort; consult staff at GREEN@COMMUNITY\n• Check for BPA-free labels on food-related items"
+                                android:lineSpacingExtra="4dp"
+                                android:textColor="#444444"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+
+            <!-- ====================== 2. Non-Recyclable Plastics ====================== -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_cannot_recycle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="4dp"
+                app:cardBackgroundColor="#FFF8F8">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="⚠️ General Waste (Non-Recyclable)"
+                        android:textStyle="bold"
+                        android:textSize="18sp"
+                        android:textColor="#C62828"
+                        android:layout_marginBottom="8dp"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="The following items should be disposed of in general trash bins as they cannot be processed by standard recycling systems:"
+                        android:textSize="14sp"
+                        android:textColor="#666666"
+                        android:layout_marginBottom="12dp"
+                        android:lineSpacingExtra="2dp"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="• Composite Materials: Crisp packets, instant noodle bags, foil-lined pouches.\n• Contaminated Items: Heavily soiled food containers, oily plastic wraps.\n• Mixed Components: Toothbrushes, toys with metal parts, stationary.\n• Adhesives: Sticky tape, stickers, glue-covered plastics.\n• Others: Rubber bands, latex products, medical waste."
+                        android:lineSpacingExtra="6dp"
+                        android:textSize="14sp"
+                        android:textColor="#444444"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:text="Note: When in doubt, it is better to dispose of it as trash than to contaminate clean recycling streams."
+                        android:textSize="12sp"
+                        android:textStyle="italic"
+                        android:textColor="#888888"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+
+            <!-- ====================== 3. Recycling Process ====================== -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_process"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="4dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Simplified 4-Step Recycling"
+                        android:textStyle="bold"
+                        android:textSize="20sp"
+                        android:textColor="#1565C0"
+                        android:layout_marginBottom="16dp"/>
+
+                    <!-- 步驟 1: Remove -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#E3F2FD"
+                        android:padding="12dp"
+                        android:layout_marginBottom="8dp"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+                        <TextView
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:background="@drawable/bg_circle_blue"
+                            android:text="1"
+                            android:textColor="#FFFFFF"
+                            android:gravity="center"
+                            android:textStyle="bold"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="12dp"
+                            android:text="REMOVE caps and rings"
+                            android:textStyle="bold"
+                            android:textColor="#0D47A1"/>
+                    </LinearLayout>
+
+                    <!-- 步驟 2: Rinse -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#E3F2FD"
+                        android:padding="12dp"
+                        android:layout_marginBottom="8dp"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+                        <TextView
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:background="@drawable/bg_circle_blue"
+                            android:text="2"
+                            android:textColor="#FFFFFF"
+                            android:gravity="center"
+                            android:textStyle="bold"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="12dp"
+                            android:text="EMPTY and RINSE out residues"
+                            android:textStyle="bold"
+                            android:textColor="#0D47A1"/>
+                    </LinearLayout>
+
+                    <!-- 步驟 3: Peel -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#E3F2FD"
+                        android:padding="12dp"
+                        android:layout_marginBottom="8dp"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+                        <TextView
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:background="@drawable/bg_circle_blue"
+                            android:text="3"
+                            android:textColor="#FFFFFF"
+                            android:gravity="center"
+                            android:textStyle="bold"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="12dp"
+                            android:text="PEEL off plastic labels"
+                            android:textStyle="bold"
+                            android:textColor="#0D47A1"/>
+                    </LinearLayout>
+
+                    <!-- 步驟 4: Flatten & Recycle -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#E3F2FD"
+                        android:padding="12dp"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+                        <TextView
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:background="@drawable/bg_circle_blue"
+                            android:text="4"
+                            android:textColor="#FFFFFF"
+                            android:gravity="center"
+                            android:textStyle="bold"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="12dp"
+                            android:text="FLATTEN and place in bins"
+                            android:textStyle="bold"
+                            android:textColor="#0D47A1"/>
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/img_process_guide"
+                        android:layout_width="match_parent"
+                        android:layout_height="180dp"
+                        android:src="@drawable/image_recycling_steps"
+                        android:scaleType="fitCenter"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="16dp"
+                        android:foreground="?attr/selectableItemBackground"
+                        android:clickable="true"
+                        android:focusable="true" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="(Tap to enlarge)"
+                        android:gravity="center"
+                        android:textSize="12sp"
+                        android:textColor="#888888"
+                        android:layout_marginTop="4dp" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#EEEEEE"
+                        android:layout_marginBottom="16dp"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="The Power of Proper Sorting"
+                        android:textStyle="bold"
+                        android:textSize="18sp"
+                        android:textColor="#333333"
+                        android:layout_marginBottom="8dp"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="• Prevents contamination of recyclable batches.\n• Increases the resale value of plastic materials.\n• Ensures your effort truly helps the circular economy."
+                        android:lineSpacingExtra="6dp"
+                        android:textSize="14sp"
+                        android:textColor="#666666"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- Bottom Navigation -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        app:menu="@menu/bottom_nav_menu"
+        app:itemIconTint="@color/nav_item_color"
+        app:itemTextColor="@color/nav_item_color"
+        android:background="@android:color/white"
+        app:labelVisibilityMode="labeled"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 1. 你的主 App 主題：建議把紫色改為綠色 -->
+    <style name="Theme.MyApplication" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- 這裡建議改為 #2E7D32 (深綠) -->
+        <item name="colorPrimary">#2E7D32</item>
+        <item name="colorPrimaryDark">#1B5E20</item>
+        <item name="colorAccent">@android:color/white</item>
+    </style>
+
+    <!-- 2. 啟動畫面主題 (延續你的設定) -->
+    <style name="Theme.App.Starting" parent="Theme.SplashScreen">
+        <!-- 背景白色，符合方案 B 圖標 -->
+        <item name="windowSplashScreenBackground">#FFFFFF</item>
+        <!-- 你的 App 圖標位置 -->
+        <item name="windowSplashScreenAnimatedIcon">@mipmap/ic_launcher</item>
+        <!-- 結束後自動切換到的主題 -->
+        <item name="postSplashScreenTheme">@style/Theme.MyApplication</item>
+        <!-- API 31+ 必填，代表動畫停留建議時間 -->
+        <item name="windowSplashScreenAnimationDuration">1000</item>
+    </style>
+
+</resources>
